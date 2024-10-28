@@ -3,8 +3,8 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./securehub_front     # Contexto donde está el Dockerfile del frontend
-      dockerfile: Dockerfile         # Dockerfile dentro de securehub_front
+      context: .    
+      dockerfile: Dockerfile         
     ports:
       - "3000:3000"
     environment:
