@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./securehub_front     # Contexto donde está el Dockerfile del frontend
+      dockerfile: Dockerfile         # Dockerfile dentro de securehub_front
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend-service:9000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
