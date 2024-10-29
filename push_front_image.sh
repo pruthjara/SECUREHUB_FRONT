@@ -4,7 +4,7 @@
 REPO_FRONTEND="strast-upm/securehub_frontend"
 TAG="latest"
 USERNAME="pruthjara"
-TOKEN="-"
+TOKEN="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"
 
 # Función para ejecutar un comando y verificar errores
 run_command() {
