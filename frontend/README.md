@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# SecureHub_Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend del proyecto **SecureHub** creado con [Create React App](https://create-react-app.dev/). Este frontend se comunica con el backend de la aplicación y proporciona una interfaz de usuario para la gestión de seguridad de personal.
 
-## Available Scripts
+## Estructura del Proyecto
 
-In the project directory, you can run:
+```bash
+/frontend/
+├── public                # Archivos públicos y estáticos
+├── src                   # Código fuente del frontend
+│   ├── components        # Componentes de React
+│   ├── services          # Servicios para llamadas a la API
+│   ├── App.js            # Componente principal de la aplicación
+│   ├── index.js          # Punto de entrada de la aplicación
+├── package.json          # Configuración de dependencias y scripts
+└── README.md             # Documentación del proyecto
+```
 
-### `npm start`
+## Requisitos Previos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Node.js** 14 o superior
+- **npm** 6 o superior
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instrucciones de Uso
 
-### `npm test`
+### Clonar el Repositorio
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/STRAST-UPM/SysControl_Front.git
+cd SysControl_Front/frontend
+```
 
-### `npm run build`
+### Configurar Entorno de Desarrollo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Antes de iniciar el proyecto, asegúrate de configurar correctamente la URL del backend en el archivo de configuración. Usa la variable de entorno `REACT_APP_BACKEND_URL` para definir la URL del backend.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Ejecutar el Proyecto en Local
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para iniciar el frontend en modo de desarrollo, ejecuta:
 
-### `npm run eject`
+```bash
+npm start
+```
+La aplicación estará disponible en http://localhost:3000. La página se recargará automáticamente si realizas cambios en el código.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Crear un Build para Producción
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para compilar el proyecto para producción, ejecuta:
+```bash
+npm run build
+```
+Este comando genera una versión optimizada de la aplicación en la carpeta build, lista para ser desplegada.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Documentación de la API
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+La aplicación se comunica con el backend mediante una API REST. Asegúrate de configurar la URL del backend correctamente para el despliegue.
 
-## Learn More
+### Pruebas
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Para ejecutar las pruebas en modo interactivo:
+```bash
+npm test
+```
+Consulta la sección de ejecución de pruebas en la documentación de Create React App para más información.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Despliegue en Producción
 
-### Code Splitting
+El frontend se puede desplegar en un clúster de Kubernetes. Después de descargar el proyecto, asegúrate de ejecutar el siguiente comando para generar la carpeta `build`:
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Configura las variables de entorno necesarias para conectar con el backend correctamente antes de desplegar.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
