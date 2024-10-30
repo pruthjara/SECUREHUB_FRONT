@@ -1,13 +1,12 @@
 import React from 'react';
-import Nasa from './Nasa'; 
+import HomePage from './containers/HomePage';
 
-const App = () => {
-    return (
-        <div className="App">
-            <h1>NASA Astronomy Picture of the Day</h1>
-            <Nasa/>
-        </div>
-    );
-};
+function App() {
+  return (
+    <div>
+      <HomePage />
+    </div>
+  );
+}
 
 export default App;
