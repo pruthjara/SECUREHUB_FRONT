@@ -6,8 +6,7 @@ import os
 REPO_FRONTEND = "strast-upm/securehub_frontend"
 TAG = "latest"
 USERNAME = "pruthjara"
-TOKEN = "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"
-COMPOSE_FILE_PATH = sys.argv[1] if len(sys.argv) > 1 else "docker-compose.yml"
+TOKEN = "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"
 
 def run_command(command, error_message):
     """Ejecuta un comando y maneja errores."""
@@ -41,9 +40,10 @@ def main():
     # Eliminar la imagen local del frontend antes de reconstruir
     remove_old_local_frontend_image()
 
-    # Construir todas las imágenes definidas en Docker Compose
-    print(f"Construyendo las imágenes Docker con Docker Compose desde {COMPOSE_FILE_PATH}...")
-    run_command(f"docker-compose -f {COMPOSE_FILE_PATH} build --no-cache", "Error al construir las imágenes con Docker Compose")
+    # Construir la imagen Docker directamente
+    print("Construyendo la imagen Docker del frontend...")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    run_command(f"docker build -t securehub-frontend:latest -f {os.path.join(current_dir, 'Dockerfile')} {current_dir}", "Error al construir la imagen Docker del frontend")
 
     # Obtener el ID de la imagen del frontend
     frontend_image_id = get_image_id("securehub-frontend")
@@ -68,3 +68,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
