@@ -1,0 +1,42 @@
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .user-list li {
+    margin: 0;
+  }
+  
+  .user-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #add8e6; /* Azul principal */
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-button:hover {
+    background-color: #87ceeb; /* Azul más claro */
+  }
