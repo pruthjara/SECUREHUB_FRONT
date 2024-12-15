@@ -1,0 +1,44 @@
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #add8e6; /* Azul principal */
+    padding: 15px 30px;
+    color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  header img {
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
+  }
+  
+  header h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  header nav {
+    display: flex;
+    gap: 20px;
+  }
+  
+  header nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  header nav a:hover {
+    color: #ffff; /* Amarillo claro al pasar el mouse */
+  }
+  
+  header nav a.active {
+    border-bottom: 2px solid #76787e; /* Indicador de sección activa */
+    padding-bottom: 2px;
+  }
+  
