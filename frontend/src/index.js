@@ -10,7 +10,7 @@ import Keycloak from 'keycloak-js';
 const keycloak = new Keycloak({
   url: 'http://keycloak-service:8080/auth', // URL de tu servidor Keycloak
   realm: 'securehub', // Nombre del realm configurado en Keycloak
-  clientId: 'frontend-client', // Client ID configurado en Keycloak para tu frontend
+  clientId: 'securehub-frontend', // Client ID configurado en Keycloak para tu frontend
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
