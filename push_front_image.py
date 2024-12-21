@@ -6,7 +6,7 @@ import os
 REPO_FRONTEND = "strast-upm/securehub_frontend"
 TAG = "latest"
 USERNAME = "pruthjara"
-TOKEN = "-"
+TOKEN = "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"
 
 def run_command(command, error_message):
     """Ejecuta un comando y maneja errores."""
