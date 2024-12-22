@@ -64,38 +64,27 @@ const App = () => {
         {/* Barra de navegación */}
         {authenticated && (
           <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <div className="container-fluid">
-              <a className="navbar-brand" href="/">SecureHub</a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-              >
-                <span className="navbar-toggler-icon"></span>
+          <div className="container-fluid d-flex justify-content-between align-items-center">
+            <a className="navbar-brand" href="/">SecureHub</a>
+            <div className="d-flex align-items-center">
+              <ul className="navbar-nav d-flex flex-row me-3">
+                <li className="nav-item mx-2">
+                  <Link className="nav-link" to="/freeipa/allusers">Usuarios</Link>
+                </li>
+                <li className="nav-item mx-2">
+                  <Link className="nav-link" to="/freeipa/groups">Grupos</Link>
+                </li>
+                <li className="nav-item mx-2">
+                  <Link className="nav-link" to="/freeipa/user/testuser">Detalles Usuario</Link>
+                </li>
+              </ul>
+              <button className="btn btn-danger btn-sm" onClick={handleLogout}>
+                Cerrar sesión
               </button>
-              <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav me-auto">
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/freeipa/allusers">Usuarios</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/freeipa/groups">Grupos</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/freeipa/user/testuser">Detalles Usuario</Link>
-                  </li>
-                </ul>
-                <ul className="navbar-nav ms-auto">
-                  <li className="nav-item">
-                    <button className="btn btn-danger" onClick={handleLogout}>
-                      Cerrar sesión
-                    </button>
-                  </li>
-                </ul>
-              </div>
             </div>
+          </div>
           </nav>
+        
         )}
 
         {/* Contenido de la aplicación */}
