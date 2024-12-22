@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, NavLink } from "react-router-dom";
 import { ReactKeycloakProvider, useKeycloak } from "@react-keycloak/web";
 import keycloak from "./keycloak"; // Configuración de Keycloak
 import Home from "./pages/Home";
@@ -9,8 +9,14 @@ import User from "./pages/User";
 
 // Componente para manejar rutas protegidas
 const ProtectedRoute = ({ children }) => {
-  const { keycloak } = useKeycloak();
-  
+  const { keycloak, initialized } = useKeycloak();
+
+  // Mientras Keycloak se inicializa
+  if (!initialized) {
+    return <div>Cargando autenticación...</div>;
+  }
+
+  // Si no está autenticado, redirige al home
   if (!keycloak.authenticated) {
     return <Navigate to="/" />;
   }
@@ -25,10 +31,26 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/freeipa/allusers">Users</a></li>
-        <li><a href="/freeipa/groups">Groups</a></li>
-        <li><a href="/freeipa/user/testuser">User</a></li>
+        <li>
+          <NavLink to="/" activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/freeipa/allusers" activeClassName="active">
+            Users
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/freeipa/groups" activeClassName="active">
+            Groups
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/freeipa/user/testuser" activeClassName="active">
+            User
+          </NavLink>
+        </li>
         {keycloak.authenticated && (
           <li>
             <button onClick={() => keycloak.logout({ redirectUri: "http://192.168.100.108:3000" })}>
@@ -48,6 +70,13 @@ const App = () => {
       authClient={keycloak}
       initOptions={{ onLoad: "login-required" }}
       LoadingComponent={<div>Cargando Keycloak...</div>}
+      onEvent={(event, error) => {
+        console.log("Keycloak Event:", event);
+        if (error) console.error("Keycloak Error:", error);
+      }}
+      onTokens={(tokens) => {
+        console.log("Keycloak Tokens:", tokens);
+      }}
     >
       <Router>
         <Navbar />
