@@ -1,93 +1,106 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate, Link } from "react-router-dom";
-import keycloak from "./keycloak"; // Configuración de Keycloak
+import React, { useState, useEffect } from "react";
+import Keycloak from "keycloak-js";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Groups from "./pages/Groups";
 import User from "./pages/User";
+import "./styles/Global.css";
 
-const App = () => {
-  const [keycloakInitialized, setKeycloakInitialized] = useState(false);
+// Configuración de Keycloak
+const keycloakOptions = {
+  url: "http://138.4.11.247:8080",
+  realm: "master",
+  clientId: "frontend-client",
+};
+
+function App() {
+  const [keycloakInstance, setKeycloakInstance] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
 
-  // Inicialización de Keycloak
   useEffect(() => {
-    keycloak
-      .init({ onLoad: "login-required" }) // Cambiar a "check-sso" si necesitas depuración
-      .then((auth) => {
-        console.log("¿Usuario autenticado?:", auth);
+    const initKeycloak = async () => {
+      const keycloak = new Keycloak(keycloakOptions);
+      console.log("Inicializando Keycloak...");
+      try {
+        const auth = await keycloak.init({
+          onLoad: "login-required",
+          checkLoginIframe: false,
+        });
+        console.log("Estado de autenticación:", auth);
+        setKeycloakInstance(keycloak);
         setAuthenticated(auth);
-        setKeycloakInitialized(true);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error al inicializar Keycloak:", error);
-        setKeycloakInitialized(true); // Incluso si falla, marcamos como inicializado
-      });
+      }
+    };
+    initKeycloak();
   }, []);
 
-  if (!keycloakInitialized) {
-    return <div>Cargando Keycloak...</div>;
+  const handleLogout = () => {
+    if (keycloakInstance) {
+      keycloakInstance.logout({ redirectUri: "http://192.168.100.108:3000" });
+    }
+  };
+
+  const ProtectedRoute = ({ authenticated, children }) => {
+    return authenticated ? children : <Navigate to="/" />;
+  };
+
+  if (!keycloakInstance) {
+    return <div>Cargando...</div>;
   }
 
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/freeipa/allusers"
-          element={
-            <ProtectedRoute authenticated={authenticated}>
-              <Users />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/freeipa/groups"
-          element={
-            <ProtectedRoute authenticated={authenticated}>
-              <Groups />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/freeipa/user/:username"
-          element={
-            <ProtectedRoute authenticated={authenticated}>
-              <User />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Router>
+    <div>
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container-fluid">
+          <a className="navbar-brand" href="#">SecureHub</a>
+          <ul className="navbar-nav ms-auto">
+            {authenticated && (
+              <li className="nav-item">
+                <button className="btn btn-danger" onClick={handleLogout}>
+                  Cerrar sesión
+                </button>
+              </li>
+            )}
+          </ul>
+        </div>
+      </nav>
+
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/freeipa/allusers"
+            element={
+              <ProtectedRoute authenticated={authenticated}>
+                <Users />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/freeipa/groups"
+            element={
+              <ProtectedRoute authenticated={authenticated}>
+                <Groups />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/freeipa/user/:username"
+            element={
+              <ProtectedRoute authenticated={authenticated}>
+                <User />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
   );
-};
-
-// Navbar con links y logout
-const Navbar = () => (
-  <nav>
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/freeipa/allusers">Users</Link></li>
-      <li><Link to="/freeipa/groups">Groups</Link></li>
-      <li><Link to="/freeipa/user/testuser">User</Link></li>
-      <li>
-        <button onClick={() => keycloak.logout({ redirectUri: "http://138.4.11.247:3000" })}>
-          Logout
-        </button>
-      </li>
-    </ul>
-  </nav>
-);
-
-// Componente para rutas protegidas
-const ProtectedRoute = ({ authenticated, children }) => {
-  if (!authenticated) {
-    console.log("Usuario no autenticado, redirigiendo al inicio de sesión...");
-    keycloak.login(); // Forzar inicio de sesión si no está autenticado
-    return <div>Redirigiendo al inicio de sesión...</div>;
-  }
-  return children;
-};
+}
 
 export default App;
