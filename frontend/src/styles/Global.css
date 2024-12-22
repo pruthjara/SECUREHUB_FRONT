@@ -1,50 +1,137 @@
+/* Estilo global */
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #add8e6; /* Azul claro */
-    color: #333; /* Texto oscuro */
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #e6f7ff; /* Fondo azul muy claro */
+  color: #333; /* Color oscuro para el texto */
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: #4da6ff; /* Azul medio para la barra */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #ffffff !important;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: #ffffff !important;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d9f0ff !important; /* Azul más claro al pasar el ratón */
+}
+
+.btn-danger {
+  background-color: #ff5c5c;
+  border-color: #ff5c5c;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #ff3b3b;
+  color: #ffffff;
+}
+
+/* Contenedor principal */
+.app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h1,
+h2,
+h3 {
+  color: #00509e; /* Azul oscuro */
+  margin-bottom: 20px;
+}
+
+/* Estilo para enlaces generales */
+a {
+  color: #00509e; /* Azul oscuro */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #003d7a; /* Azul más oscuro al pasar el ratón */
+}
+
+/* Footer */
+.footer {
+  background-color: #4da6ff; /* Azul medio */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #f2f9ff; /* Azul muy claro para tarjetas */
+  border: 1px solid #d9f0ff; /* Bordes sutiles */
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00509e;
+}
+
+.card-body {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  background-color: #4da6ff;
+  border-color: #4da6ff;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #00509e;
+  border-color: #00407a;
+}
+
+/* Espaciado */
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
   }
-  
-  header {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color:#add8e6; /* Azul principal */
-    color: white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+  .nav-link {
+    font-size: 0.9rem;
   }
-  
-  header img {
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 24px;
-  }
-  
-  nav {
-    margin-left: auto;
-  }
-  
-  nav a {
-    margin: 0 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
-  main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
