@@ -8,7 +8,7 @@ const User = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://138.4.11.247:9000/freeipa/user/${username}`)
+    fetch(`http://138.4.11.249:9000/freeipa/user/${username}`)
       .then((res) => res.json())
       .then((data) => {
         setUser(data);

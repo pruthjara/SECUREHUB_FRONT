@@ -6,7 +6,7 @@ const Users = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://138.4.11.247:9000/freeipa/allusers")
+    fetch("http://138.4.11.249:9000/freeipa/allusers")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.error(err));

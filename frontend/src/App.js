@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Groups from "./pages/Groups";
 import User from "./pages/User";
+import Header from "./components/Header";
 import "./styles/Global.css";
 
 // Fallback solo para randomUUID
@@ -15,7 +16,7 @@ if (!window.crypto?.randomUUID) {
 
 // Configuración de Keycloak
 const keycloakConfig = {
-  url: "http://138.4.11.247:8080",
+  url: "http://138.4.11.249:8080",
   realm: "securehub",
   clientId: "securehub-frontend",
 };
@@ -46,7 +47,7 @@ const App = () => {
 
   const handleLogout = () => {
     if (keycloak) {
-      keycloak.logout({ redirectUri: "http://138.4.11.247:3000" });
+      keycloak.logout({ redirectUri: "http://138.4.11.249:3030" })
     }
   };
 
@@ -60,65 +61,41 @@ const App = () => {
 
   return (
     <Router>
-      <div>
-        {/* Barra de navegación */}
-        {authenticated && (
-          <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <div className="container-fluid d-flex justify-content-between align-items-center">
-            <a className="navbar-brand" href="/">SecureHub</a>
-            <div className="d-flex align-items-center">
-              <ul className="navbar-nav d-flex flex-row me-3">
-                <li className="nav-item mx-2">
-                  <Link className="nav-link" to="/freeipa/allusers">Usuarios</Link>
-                </li>
-                <li className="nav-item mx-2">
-                  <Link className="nav-link" to="/freeipa/groups">Grupos</Link>
-                </li>
-                <li className="nav-item mx-2">
-                  <Link className="nav-link" to="/freeipa/user/testuser">Detalles Usuario</Link>
-                </li>
-              </ul>
-              <button className="btn btn-danger btn-sm" onClick={handleLogout}>
-                Cerrar sesión
-              </button>
-            </div>
-          </div>
-          </nav>
+      <>
+        {authenticated && <Header handleLogout={handleLogout} />}
         
-        )}
-
-        {/* Contenido de la aplicación */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/freeipa/allusers"
-            element={
-              <ProtectedRoute>
-                <Users />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/freeipa/groups"
-            element={
-              <ProtectedRoute>
-                <Groups />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/freeipa/user/:username"
-            element={
-              <ProtectedRoute>
-                <User />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </div>
+        <main className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/freeipa/allusers"
+              element={
+                <ProtectedRoute>
+                  <Users />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/freeipa/groups"
+              element={
+                <ProtectedRoute>
+                  <Groups />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/freeipa/user/:username"
+              element={
+                <ProtectedRoute>
+                  <User />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </main>
+      </>
     </Router>
   );
 };
 
 export default App;
-
