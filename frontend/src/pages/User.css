@@ -1,40 +1,22 @@
-body {
-    background-color: #f0f8ff; /* Azul claro */
-  }
-  
-  h2 {
-    font-size: 28px;
-    color: #add8e6; /* Azul principal */
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  div {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin: 10px 0;
-  }
-  
-  strong {
-    color: #333;
-  }
-  
-  p strong {
-    margin-right: 5px;
-  }
-  
-  .loading {
-    text-align: center;
-    font-size: 20px;
-    color: #add8e6;
-    margin-top: 20px;
-  }
+/* User.css */
+.user-details {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #007acc;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}
+
+strong {
+  color: #005f99;
+}

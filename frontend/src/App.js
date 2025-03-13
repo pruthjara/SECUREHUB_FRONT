@@ -61,39 +61,39 @@ const App = () => {
 
   return (
     <Router>
-      <>
-        {authenticated && <Header handleLogout={handleLogout} />}
-        
-        <main className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/freeipa/allusers"
-              element={
-                <ProtectedRoute>
-                  <Users />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/freeipa/groups"
-              element={
-                <ProtectedRoute>
-                  <Groups />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/freeipa/user/:username"
-              element={
-                <ProtectedRoute>
-                  <User />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
-        </main>
-      </>
+      {/*  Header fijo arriba solo si el usuario está autenticado */}
+      {authenticated && <Header handleLogout={handleLogout} />}
+
+      {/*  Contenedor de la app con padding para que no lo tape el header */}
+      <main className="app-container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/freeipa/allusers"
+            element={
+              <ProtectedRoute>
+                <Users />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/freeipa/groups"
+            element={
+              <ProtectedRoute>
+                <Groups />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/freeipa/user/:username"
+            element={
+              <ProtectedRoute>
+                <User />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </main>
     </Router>
   );
 };

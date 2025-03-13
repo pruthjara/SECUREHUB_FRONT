@@ -1,94 +1,54 @@
-/* Reset global */
+/* Global.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 body {
-  background-color: #f4f4f9; /* Fondo gris claro */
-  color: #212529;
-  font-size: 16px;
-  line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #f4faff; /* Azul claro muy suave */
+  color: #333;
+  padding-top: 80px; /* Para evitar que el header fijo tape contenido */
 }
 
-/* 🔹 PARA QUE EL CONTENIDO NO QUEDE TAPADO POR EL HEADER */
-main {
-  padding-top: 80px;
-  width: 100%;
+.app-container {
   max-width: 1200px;
-}
-
-/* 🔹 ELIMINA EL CUADRO PEQUEÑO DEL CENTRO */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
+  margin: auto;
   padding: 20px;
 }
 
-/* 🔹 BOTONES BONITOS */
+/* Estilos generales para botones */
 button {
-  padding: 10px 15px;
+  background-color: #007acc;
+  color: white;
   border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: all 0.3s ease;
-  font-weight: bold;
+  transition: background 0.3s ease-in-out;
 }
 
-/* 🔹 BOTÓN PRIMARIO (AZUL) */
-.btn-primary {
-  background-color: #0b5ed7;
-  color: white;
+button:hover {
+  background-color: #005f99;
 }
 
-.btn-primary:hover {
-  background-color: #084298;
+/* Estilos generales para enlaces */
+a {
+  color: #007acc;
+  text-decoration: none;
 }
 
-/* 🔹 BOTÓN PELIGRO (ROJO) */
-.btn-danger {
-  background-color: #d9534f;
-  color: white;
+a:hover {
+  color: #005f99;
+  text-decoration: underline;
 }
 
-.btn-danger:hover {
-  background-color: #c9302c;
-}
-
-/* 🔹 PARA EVITAR BOTONES INVISIBLES */
-button:not(.btn-primary):not(.btn-danger) {
-  background-color: #f8f9fa;
-  color: #212529;
-  border: 1px solid #ccc;
-}
-
-button:not(.btn-primary):not(.btn-danger):hover {
-  background-color: #e2e6ea;
-}
-
-/* 🔹 TARJETAS CON SOMBRA */
-.card {
+/* Contenedor principal */
+.container {
   background: white;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-}
-
-/* 🔹 RESPONSIVE */
-@media (max-width: 768px) {
-  .container {
-    width: 95%;
-  }
 }
