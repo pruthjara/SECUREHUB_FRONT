@@ -1,14 +1,11 @@
 import React from "react";
 import "./Home.css";
+import MiniDashboard from "./MiniDashboard";
 
 const Home = () => {
   return (
     <main>
-      <h2>Welcome to SecureHub</h2>
-      <p>
-        Manage users and groups easily with a modern interface connected to
-        FreeIPA.
-      </p>
+      <MiniDashboard />
     </main>
   );
 };

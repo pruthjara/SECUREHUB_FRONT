@@ -1,22 +1,81 @@
-/* User.css */
+/* Contenedor principal */
 .user-details {
   max-width: 600px;
-  margin: auto;
+  margin: 40px auto;
   padding: 20px;
   background: white;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.2s ease-in-out;
 }
 
+/* Pequeño efecto de elevación al pasar el mouse */
+.user-details:hover {
+  transform: scale(1.02);
+}
+
+/* Título */
 h2 {
-  color: #007acc;
+  color: #005f99;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
+/* Párrafos de información */
 p {
   font-size: 1rem;
   color: #333;
+  background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Azul degradado como en Home */
+  padding: 12px;
+  border-radius: 8px;
+  margin: 8px 0;
+  font-weight: bold;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
 }
 
+/* Etiquetas en negrita */
 strong {
   color: #005f99;
+}
+
+/* Animación de carga */
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #005f99;
+  padding: 10px;
+}
+
+/* Resaltar si la cuenta está bloqueada */
+.account-status {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.account-status.active {
+  background: linear-gradient(to right, #66bb6a, #43a047); /* Verde degradado */
+  color: white;
+}
+
+.account-status.locked {
+  background: linear-gradient(to right, #ef5350, #d32f2f); /* Rojo degradado */
+  color: white;
+}
+
+/* Media Query para móviles */
+@media (max-width: 768px) {
+  .user-details {
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
 }

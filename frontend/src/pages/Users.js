@@ -17,7 +17,7 @@ const Users = () => {
       <h2>All Users</h2>
       <ul className="user-list">
         {users.map((user, index) => (
-          <li key={index}>
+          <li key={index} className="user-item">
             <Link to={`/freeipa/user/${user.uid?.[0]}`} className="user-button">
               {user.cn?.[0] || "Unknown User"}
             </Link>

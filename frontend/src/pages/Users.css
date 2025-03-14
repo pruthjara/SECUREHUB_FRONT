@@ -1,24 +1,84 @@
-/* Users.css */
+/* Asegurar fondo blanco en toda la página */
+body {
+  background: #FFFFFF !important; /* Blanco puro */
+}
+
+/* Contenedor principal */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+h2 {
+  color: #005f99;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+/* Lista de usuarios */
 .user-list {
   list-style-type: none;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
+/* Estilos de cada usuario */
 .user-list li {
-  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  background: none !important; /* Elimina el azul claro */
+  padding: 0;
+  margin: 0;
 }
 
+/* Botón de usuario (enlace) con azul oscuro degradado */
 .user-button {
   display: block;
-  background: #007acc;
+  width: 100%;
+  max-width: 500px;
+  background: linear-gradient(to right, #005f99, #0099cc); /* Azul oscuro degradado */
   color: white;
-  padding: 10px;
+  padding: 12px;
   text-align: center;
   text-decoration: none;
-  border-radius: 5px;
-  transition: background 0.3s ease-in-out;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+/* Efecto hover */
 .user-button:hover {
-  background: #005f99;
+  background: linear-gradient(to right, #004477, #0077aa); /* Azul más oscuro en hover */
+  color: white; /* Mantiene el texto en blanco */
+  cursor: pointer;
+  box-shadow: none; /* Elimina la sombra azul pálido alrededor */
+}
+
+/* Adaptabilidad para móviles */
+@media (max-width: 768px) {
+  body {
+    background: white !important;
+  }
+
+  main {
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .user-button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }

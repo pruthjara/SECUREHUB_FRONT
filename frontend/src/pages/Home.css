@@ -1,21 +1,96 @@
-/* Home.css */
-main {
-  text-align: center;
-  max-width: 600px;
-  margin: auto;
-  padding: 30px;
+/* MiniDashboard con 2x2 cards centrado */
+.mini-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto; /* Centrar el contenido */
+  justify-content: center; /* Centrar las columnas */
+  align-items: center; /* Asegurar que las tarjetas estén alineadas */
+}
+
+/* Tarjetas */
+.card, .card2 {
   background: white;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  width: 100%; /* Asegurar que ocupen el espacio de la cuadrícula */
 }
 
-h2 {
-  color: #007acc;
-  margin-bottom: 15px;
+.card:hover, .card2:hover {
+  transform: scale(1.02);
 }
 
-p {
+/* Títulos dentro de las tarjetas */
+.card h2, .card2 h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #005f99;
+}
+
+/* Lista dentro de las tarjetas */
+.card ul, .card2 ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Estilos para los elementos de lista dentro de las tarjetas */
+.card ul li {
+  background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
+  color: white;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Corrige el hover de card2 para evitar que el texto desaparezca */
+.card2 ul li {
+  background: #f2f2f2; /* Fondo gris claro */
+  color: #005f99; /* Azul oscuro */
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease-in-out;
+}
+
+.card2 ul li:hover {
+  background: #e0e0e0; /* Un poco más oscuro en hover */
+  cursor: pointer;
+}
+
+/* Ajustes para asegurar que el MiniDashboard se adapta bien en móviles */
+@media (max-width: 768px) {
+  .mini-dashboard {
+    grid-template-columns: 1fr; /* En pantallas pequeñas, las cards se apilan */
+  }
+}
+
+/* Estilo especial para el botón "Usuarios Activos" */
+.users-active {
+  background: white; /* Degradado azul */
+  color: white;
+  border: none;
   font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.users-active:hover {
+  background: white; /* Azul más oscuro */
+  transform: scale(1.05);
 }

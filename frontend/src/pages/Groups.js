@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Groups.css";
 
 const Groups = () => {
@@ -14,10 +15,12 @@ const Groups = () => {
   return (
     <main>
       <h2>All Groups</h2>
-      <ul>
+      <ul className="group-list">
         {groups.map((group, index) => (
           <li key={index}>
-            <strong>{group.cn?.[0]}</strong> ({group.description?.[0]})
+            <Link to={`/freeipa/group/${group.cn?.[0]}`} className="group-button">
+              {group.cn?.[0]}
+            </Link>
           </li>
         ))}
       </ul>

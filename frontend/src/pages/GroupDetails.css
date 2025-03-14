@@ -1,0 +1,42 @@
+/* Contenedor principal */
+.group-details {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  /* Título */
+  h2 {
+    color: #005f99;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Información del grupo */
+  p {
+    font-size: 1rem;
+    color: #333;
+    background: linear-gradient(to right, #e3f2fd, #bbdefb);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  /* Etiquetas en negrita */
+  strong {
+    color: #005f99;
+  }
+  
+  /* Animación de carga */
+  .loading {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #005f99;
+  }
+  

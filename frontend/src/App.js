@@ -7,6 +7,7 @@ import Groups from "./pages/Groups";
 import User from "./pages/User";
 import Header from "./components/Header";
 import "./styles/Global.css";
+import GroupDetails from "./pages/GroupDetails";
 
 // Fallback solo para randomUUID
 if (!window.crypto?.randomUUID) {
@@ -89,6 +90,14 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <User />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/freeipa/group/:groupName"
+            element={
+              <ProtectedRoute>
+                <GroupDetails />
               </ProtectedRoute>
             }
           />
