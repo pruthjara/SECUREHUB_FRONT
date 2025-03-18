@@ -52,55 +52,18 @@ const App = () => {
     }
   };
 
-  const ProtectedRoute = ({ children }) => {
-    if (!authenticated) {
-      console.log("Usuario no autenticado. Redirigiendo al login...");
-      return <Navigate to="/" />;
-    }
-    return children;
-  };
 
   return (
     <Router>
-      {/*  Header fijo arriba solo si el usuario está autenticado */}
       {authenticated && <Header handleLogout={handleLogout} />}
 
-      {/*  Contenedor de la app con padding para que no lo tape el header */}
-      <main className="app-container">
+      <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="/freeipa/allusers"
-            element={
-              <ProtectedRoute>
-                <Users />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/freeipa/groups"
-            element={
-              <ProtectedRoute>
-                <Groups />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/freeipa/user/:username"
-            element={
-              <ProtectedRoute>
-                <User />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/freeipa/group/:groupName"
-            element={
-              <ProtectedRoute>
-                <GroupDetails />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/freeipa/allusers" element={<Users />} />
+          <Route path="/freeipa/groups" element={<Groups />} />
+          <Route path="/freeipa/user/:username" element={<User />} />
+          <Route path="/freeipa/group/:groupName" element={<GroupDetails />} />
         </Routes>
       </main>
     </Router>
