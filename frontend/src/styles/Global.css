@@ -1,4 +1,4 @@
-/* Global.css */
+/* 📌 Reset general */
 * {
   margin: 0;
   padding: 0;
@@ -6,49 +6,37 @@
   font-family: 'Arial', sans-serif;
 }
 
-body {
-  background-color: #f4faff; /* Azul claro muy suave */
-  color: #333;
-  padding-top: 80px; /* Para evitar que el header fijo tape contenido */
+/* 📌 Configuración global de la página */
+html, body {
+  background-color: #f4faff; /* ✅ Azul claro suave */
+  color: black; /* ✅ Cambiado de blanco a negro para mejor legibilidad */
+  width: 100vw; /* ✅ Asegurar que ocupe el ancho completo */
+  height: 100vh; /* ✅ Ocupar toda la altura de la pantalla */
+  overflow-x: hidden; /* ✅ Evita scroll lateral */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ✅ Centrar contenido horizontalmente */
 }
 
+/* 📌 Asegurar que el contenedor principal esté bien centrado */
 .app-container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px; /* ✅ No dejar que el contenido se estire demasiado */
+  min-height: calc(100vh - 80px); /* ✅ Considera header fijo de 80px */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* ✅ Centrar verticalmente */
+  align-items: center; /* ✅ Centrar horizontalmente */
   margin: auto;
-  padding: 20px;
 }
 
-/* Estilos generales para botones */
-button {
-  background-color: #007acc;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-
-button:hover {
-  background-color: #005f99;
-}
-
-/* Estilos generales para enlaces */
-a {
-  color: #007acc;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #005f99;
-  text-decoration: underline;
-}
-
-/* Contenedor principal */
-.container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+/* 📌 Ajustes para evitar márgenes laterales extra */
+main {
+  width: 100%;
+  max-width: 1200px; /* ✅ Controlar el ancho del contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

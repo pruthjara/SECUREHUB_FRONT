@@ -4,9 +4,9 @@ import MiniDashboard from "./MiniDashboard";
 
 const Home = () => {
   return (
-    <main>
+    <div className="mini-dashboard-container">
       <MiniDashboard />
-    </main>
+    </div>
   );
 };
 
