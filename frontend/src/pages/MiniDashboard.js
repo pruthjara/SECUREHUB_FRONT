@@ -135,7 +135,7 @@ const MiniDashboard = () => {
           {rolesData.length > 0 ? (
             rolesData.map((role, index) => (
               <li key={index}>
-                {role.name}: {role.count} users
+                {role.name}
               </li>
             ))
           ) : (

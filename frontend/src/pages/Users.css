@@ -1,24 +1,35 @@
-/* Asegurar fondo blanco en toda la página */
+/* Asegurar fondo gris claro en la página */
 body {
-  background: #FFFFFF !important; /* Blanco puro */
+  background: #F5F5F5 !important; /* Gris claro en lugar de blanco puro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* Contenedor principal */
 main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 25px;
   background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
   text-align: center;
+}
+
+/* Eliminado hover en `main` para evitar el efecto de elevación */
+main:hover {
+  transform: none !important;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* Título */
 h2 {
   color: #005f99;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 
 /* Lista de usuarios */
@@ -27,58 +38,55 @@ h2 {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-/* Estilos de cada usuario */
-.user-list li {
+/* Fila de usuarios (dos por fila) */
+.user-row {
   display: flex;
   justify-content: center;
-  background: none !important; /* Elimina el azul claro */
-  padding: 0;
-  margin: 0;
+  gap: 20px; /* Espacio entre los botones */
+  width: 100%;
 }
 
-/* Botón de usuario (enlace) con azul oscuro degradado */
+/* Botón de usuario */
 .user-button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 500px;
-  background: linear-gradient(to right, #005f99, #0099cc); /* Azul oscuro degradado */
+  max-width: 400px; /* Más compacto para que quepan dos */
+  min-height: 60px;
+  background: linear-gradient(to right, #005f99, #0099cc);
   color: white;
-  padding: 12px;
+  padding: 16px;
+  font-size: 1.2rem;
   text-align: center;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: bold;
   transition: transform 0.2s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover */
+/* Efecto hover solo en los botones */
 .user-button:hover {
-  background: linear-gradient(to right, #004477, #0077aa); /* Azul más oscuro en hover */
-  color: white; /* Mantiene el texto en blanco */
+  background: linear-gradient(to right, #004477, #0077aa);
   cursor: pointer;
-  box-shadow: none; /* Elimina la sombra azul pálido alrededor */
+  transform: scale(1.05);
 }
 
-/* Adaptabilidad para móviles */
+/* Adaptabilidad para móviles: mostrar en una columna */
 @media (max-width: 768px) {
-  body {
-    background: white !important;
-  }
-
-  main {
-    max-width: 90%;
-  }
-
-  h2 {
-    font-size: 1.5rem;
+  .user-row {
+    flex-direction: column; /* Cambia a una sola columna */
+    align-items: center;
   }
 
   .user-button {
-    font-size: 0.9rem;
-    padding: 10px;
+    max-width: 100%; /* Ocupar todo el ancho disponible */
+    font-size: 1rem;
+    padding: 14px;
+    min-height: 55px;
   }
 }

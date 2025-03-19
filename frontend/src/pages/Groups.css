@@ -1,19 +1,25 @@
 /* Contenedor principal */
 main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 900px; /* Aumentado */
+  margin: 50px auto; /* Más separación */
+  padding: 25px; /* Más espacio interno */
   background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Bordes más suaves */
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
   text-align: center;
+}
+
+/* Eliminado hover en `main` */
+main:hover {
+  transform: none !important;
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* Título */
 h2 {
   color: #005f99;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 
 /* Lista de grupos */
@@ -22,52 +28,55 @@ h2 {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px; /* Más espacio entre filas de grupos */
 }
 
-/* Estilos de cada grupo */
-.group-list li {
+/* Fila de grupos (dos por fila) */
+.group-row {
   display: flex;
   justify-content: center;
+  gap: 20px; /* Espacio entre los botones */
   width: 100%;
 }
 
-/* Botón de grupo (enlace) */
+/* Botón de grupo */
 .group-button {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 500px;
-  background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
+  max-width: 400px; /* Más compacto para que quepan dos */
+  min-height: 60px;
+  background: linear-gradient(to right, #005f99, #0099cc);
   color: white;
-  padding: 12px;
+  padding: 16px;
+  font-size: 1.2rem;
   text-align: center;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-weight: bold;
   transition: transform 0.2s ease-in-out, background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover */
+/* Efecto hover solo en los botones */
 .group-button:hover {
-  background: linear-gradient(to right, #004477, #0077aa); /* Azul más oscuro */
-  color: white;
+  background: linear-gradient(to right, #004477, #0077aa);
   cursor: pointer;
-  box-shadow: none;
+  transform: scale(1.05);
 }
 
-/* Adaptabilidad para móviles */
+/* Adaptabilidad para móviles: mostrar en una columna */
 @media (max-width: 768px) {
-  main {
-    max-width: 90%;
-  }
-
-  h2 {
-    font-size: 1.5rem;
+  .group-row {
+    flex-direction: column; /* Cambia a una sola columna */
+    align-items: center;
   }
 
   .group-button {
-    font-size: 0.9rem;
-    padding: 10px;
+    max-width: 100%; /* Ocupar todo el ancho disponible */
+    font-size: 1rem;
+    padding: 14px;
+    min-height: 55px;
   }
 }

@@ -1,38 +1,39 @@
 /* Contenedor principal */
 .user-details {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
+  max-width: 700px; /* Aumentado */
+  margin: 50px auto; /* Más separación */
+  padding: 25px; /* Más espacio interno */
   background: white;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Bordes más suaves */
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
   text-align: left;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 /* Pequeño efecto de elevación al pasar el mouse */
 .user-details:hover {
-  transform: scale(1.02);
+  transform: scale(1.04); /* Más grande en hover */
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15); /* Sombra más notoria */
 }
 
 /* Título */
 h2 {
   color: #005f99;
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-size: 2rem; /* Más grande */
 }
 
 /* Párrafos de información */
 p {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Texto más grande */
   color: #333;
-  background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Azul degradado como en Home */
-  padding: 12px;
-  border-radius: 8px;
-  margin: 8px 0;
+  background: linear-gradient(to right, #e3f2fd, #bbdefb); /* Azul degradado */
+  padding: 14px; /* Más espacio */
+  border-radius: 10px; /* Bordes más suaves */
+  margin: 10px 0;
   font-weight: bold;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Etiquetas en negrita */
@@ -43,20 +44,20 @@ strong {
 /* Animación de carga */
 .loading {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Aumentado */
   font-weight: bold;
   color: #005f99;
-  padding: 10px;
+  padding: 12px;
 }
 
 /* Resaltar si la cuenta está bloqueada */
 .account-status {
-  font-size: 1rem;
+  font-size: 1.1rem; /* Más grande */
   font-weight: bold;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 14px;
+  border-radius: 10px; /* Bordes más suaves */
   text-align: center;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .account-status.active {
@@ -73,9 +74,15 @@ strong {
 @media (max-width: 768px) {
   .user-details {
     max-width: 90%;
+    padding: 20px; /* Un poco más de espacio */
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem; /* Aumentado en móviles */
+  }
+
+  p {
+    font-size: 1rem; /* Ajustado */
+    padding: 12px;
   }
 }

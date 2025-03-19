@@ -8,6 +8,9 @@ const GroupDetails = () => {
   const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+     setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 100);
      fetch(`http://138.4.11.249:9000/freeipa/groups/${groupname}`)
           .then((res) => res.json())
           .then((data) => {

@@ -5,7 +5,9 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Groups from "./pages/Groups";
 import User from "./pages/User";
+import Databases from "./pages/Databases";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import "./styles/Global.css";
 import GroupDetails from "./pages/GroupDetails";
 
@@ -25,6 +27,7 @@ const keycloakConfig = {
 const App = () => {
   const [keycloak, setKeycloak] = useState(null);
   const [authenticated, setAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const keycloakInstance = new Keycloak(keycloakConfig);
@@ -40,6 +43,12 @@ const App = () => {
         console.log("Autenticación exitosa:", auth);
         setKeycloak(keycloakInstance);
         setAuthenticated(auth);
+
+        if (auth) {
+          const userInfo = keycloakInstance.tokenParsed; // Obtener datos del usuario
+          console.log("Usuario autenticado:", userInfo);
+          setUser(userInfo); // Guardar el usuario en el estado
+        }
       })
       .catch((error) => {
         console.error("Error inicializando Keycloak:", error);
@@ -55,17 +64,20 @@ const App = () => {
 
   return (
     <Router>
-      {authenticated && <Header handleLogout={handleLogout} />}
+      {authenticated && <Header handleLogout={handleLogout} user={user} />}
+
 
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home user={user} />} />
+          <Route path="/databases" element={<Databases />}/>
           <Route path="/freeipa/allusers" element={<Users />} />
           <Route path="/freeipa/groups" element={<Groups />} />
           <Route path="/freeipa/user/:username" element={<User />} />
           <Route path="/freeipa/group/:groupName" element={<GroupDetails />} />
         </Routes>
       </main>
+      <Footer />
     </Router>
   );
 };
