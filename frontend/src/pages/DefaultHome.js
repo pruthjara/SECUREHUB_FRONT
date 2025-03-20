@@ -67,7 +67,7 @@ const DefaultHome = ({ user }) => {
      {/* Información del usuario autenticado */}
       {userData && (
         <div className="default-card default-clickable" onClick={() => navigate(`/freeipa/user/${user.preferred_username}`)}>
-        <h2>Your Profile</h2>
+        <h2>You are</h2>
         <p><strong>Name:</strong> {userData.name}</p>
         <p><strong>Role:</strong> {userData.role}</p>
         </div>
