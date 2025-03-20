@@ -1,11 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Header.css";
 
 const Header = ({ handleLogout, user }) => {
   const navigate = useNavigate();
-
-  console.log("Usuario autenticado en Header:", user); // Verificar que `user` tiene datos
 
   return (
     <header className="header">
@@ -15,20 +13,30 @@ const Header = ({ handleLogout, user }) => {
         <h1 className="title">SecureHub</h1>
       </div>
 
-      {/* Contenedor derecho: Botón de Logout + Perfil de usuario */}
+      {/* Contenedor derecho: Flechas de navegación + Botón de usuario + Logout */}
       <div className="logout-container">
+        {/* Botones de navegación */}
+        <button className="nav-button" onClick={() => window.history.back()}>
+          {"<"}
+        </button>
+        <button className="nav-button" onClick={() => window.history.forward()}>
+          {">"}
+        </button>
+
         {/* Botón de información de usuario con redirección a su página */}
-        {user?.preferred_username && (
+        {user && (
           <button
-            className="user-butt"
+            className="user-button2"
             onClick={() => navigate(`/freeipa/user/${user.preferred_username}`)}
           >
-            <img src="user-icon.png" alt="Perfil" className="user-icon" />
+            <img src="/user-icon.png" alt="Perfil" className="user-icon" />
           </button>
         )}
 
         {/* Botón de Cerrar sesión */}
-        <button className="logout-button" onClick={handleLogout}>Cerrar sesión</button>
+        <button className="logout-button" onClick={handleLogout}>
+          Cerrar sesión
+        </button>
       </div>
     </header>
   );

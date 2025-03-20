@@ -1,68 +1,68 @@
-/* Contenedor principal */
+/* 📌 Contenedor principal más compacto */
 .group-details {
-  max-width: 700px; /* Aumentado */
-  margin: 50px auto; /* Más separación */
-  padding: 25px; /* Más espacio interno */
+  max-width: 650px; /* 🔹 Un poco más pequeño */
+  margin: 40px auto; /* 🔹 Menos separación */
+  padding: 20px; /* 🔹 Menos espacio interno */
   background: white;
-  border-radius: 12px; /* Bordes más suaves */
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* Sombra más pronunciada */
+  border-radius: 10px; /* 🔹 Bordes más suaves */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 🔹 Sombra más ligera */
   text-align: left;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* Efecto hover en el contenedor */
+/* 📌 Efecto hover menos pronunciado */
 .group-details:hover {
-  transform: scale(1.03); /* Ligeramente más grande en hover */
-  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15); /* Sombra más notoria */
+  transform: scale(1.02); /* 🔹 Menos agrandamiento */
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* 🔹 Sombra más sutil */
 }
 
-/* Título */
+/* 📌 Título */
 h2 {
   color: #005f99;
   text-align: center;
-  margin-bottom: 25px;
-  font-size: 2rem; /* Más grande */
+  margin-bottom: 20px; /* 🔹 Menos separación */
+  font-size: 1.8rem; /* 🔹 Un poco más pequeño */
 }
 
-/* Información del grupo */
+/* 📌 Información del grupo más compacta */
 p {
-  font-size: 1.1rem; /* Texto más grande */
+  font-size: 1rem; /* 🔹 Un poco más pequeño */
   color: #333;
   background: linear-gradient(to right, #e3f2fd, #bbdefb);
-  padding: 14px; /* Más espacio */
-  border-radius: 10px; /* Bordes más suaves */
-  margin: 8px 0;
+  padding: 10px; /* 🔹 Menos espacio interno */
+  border-radius: 8px; /* 🔹 Bordes más suaves */
+  margin: 6px 0; /* 🔹 Menos espacio entre párrafos */
   font-weight: bold;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08); /* 🔹 Sombra más ligera */
 }
 
-/* Etiquetas en negrita */
+/* 📌 Etiquetas en negrita */
 strong {
   color: #005f99;
 }
 
-/* Animación de carga */
+/* 📌 Animación de carga */
 .loading {
   text-align: center;
-  font-size: 1.3rem; /* Más grande */
+  font-size: 1.2rem; /* 🔹 Un poco más pequeño */
   font-weight: bold;
   color: #005f99;
-  padding: 12px;
+  padding: 10px; /* 🔹 Menos espacio */
 }
 
-/* Adaptabilidad para móviles */
+/* 📌 Adaptabilidad para móviles */
 @media (max-width: 768px) {
   .group-details {
-      max-width: 90%;
-      padding: 20px;
+    max-width: 90%;
+    padding: 15px; /* 🔹 Un poco más compacto */
   }
 
   h2 {
-      font-size: 1.8rem; /* Aumentado en móviles */
+    font-size: 1.6rem; /* 🔹 Un poco más pequeño en móviles */
   }
 
   p {
-      font-size: 1rem; /* Ajustado */
-      padding: 12px;
+    font-size: 0.95rem; /* 🔹 Ajustado */
+    padding: 9px;
   }
 }

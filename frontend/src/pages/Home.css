@@ -1,30 +1,34 @@
 /* 📌 MiniDashboard con 3 columnas y 2 filas */
 .mini-dashboard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ✅ Tres columnas */
-  gap: 20px; /* 🔹 Espaciado ligeramente reducido */
-  width: 95vw; /* ✅ Ocupar casi todo el ancho */
-  max-width: 1200px; /* 🔹 Reducido para evitar que se extienda demasiado */
-  margin: 40px auto 0 auto; /* ✅ Centrado horizontalmente y separación del header */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px; /* 🔹 Espaciado más compacto */
+  width: 95vw;
+  max-width: 1100px; /* 🔹 Reducido un poco */
+  margin: 30px auto 0 auto; /* 🔹 Menos margen arriba */
   justify-content: center;
-  align-items: start; /* ✅ Evita espacio innecesario debajo */
-  padding: 15px; /* 🔹 Menos padding para compactarlo */
+  align-items: start;
+  padding: 10px; /* 🔹 Menos padding general */
 }
 
 /* 📌 Tarjetas más pequeñas */
-.card, .card2 {
+.card, .card2, .card3, .card4 {
   background: white;
-  padding: 20px; /* 🔹 Reducido */
+  padding: 15px; /* 🔹 Reducido */
   border-radius: 10px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   text-align: center;
   width: 100%;
-  min-height: 220px; /* 🔹 Reducido */
+  min-height: 200px; /* 🔹 Menos altura */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card3 {
+  background: #e3f2fd; /* Azul clarito */
 }
 
 /* 📌 Efecto hover */
@@ -33,16 +37,16 @@
 }
 
 /* 📌 Títulos dentro de las tarjetas */
-.card h2, .card2 h2 {
-  font-size: 1.4rem; /* 🔹 Un poco más pequeño */
-  margin-bottom: 10px;
+.card h2, .card2 h2, .card3 h2, .card4 h2{
+  font-size: 1.3rem; /* 🔹 Un poco más pequeño */
+  margin-bottom: 8px; /* 🔹 Menos separación */
   color: #005f99;
   text-align: center;
   width: 100%;
 }
 
-/* 📌 Lista dentro de las tarjetas */
-.card ul, .card2 ul {
+/* 📌 Listas dentro de las tarjetas */
+.card ul, .card2 ul, .card3 ul, .card4 ul {
   list-style: none;
   padding: 0;
   width: 100%;
@@ -51,32 +55,31 @@
   align-items: center;
 }
 
-/* 📌 Botones más pequeños dentro de las tarjetas */
+/* 📌 Botones más compactos */
 .card ul li, 
 .card2 ul li, 
+.card3 ul li,
+.card4 ul li, 
 .users-active, 
 .card.roles-distribution ul li {
   background: linear-gradient(to right, #005f99, #0099cc) !important; 
   color: white !important;
-  padding: 12px; /* 🔹 Menos espacio */
-  margin: 6px 0; /* 🔹 Más compactos */
-  border-radius: 8px; /* 🔹 Más pequeño */
-  font-size: 1rem; /* 🔹 Reducido */
+  padding: 10px; /* 🔹 Menos espacio interno */
+  margin: 5px 0; /* 🔹 Más compacto */
+  border-radius: 8px;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 85%; /* 🔹 Más compacto */
-  max-width: 250px; /* 🔹 Reducido */
+  width: 90%;
+  max-width: 280px; /* 🔹 Reducido un poco */
   transition: background 0.3s ease-in-out;
 }
 
-/* 📌 Hover uniforme para todos los botones */
-.card ul li:hover, 
-.card2 ul li:hover, 
-.users-active:hover, 
-.card.roles-distribution ul li:hover {
+/* 📌 Hover uniforme */ 
+.users-active:hover {
   background: linear-gradient(to right, #004477, #0077aa) !important;
   cursor: pointer;
 }

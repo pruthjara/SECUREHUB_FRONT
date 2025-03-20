@@ -1,0 +1,93 @@
+/* 📌 DefaultHome con 2 columnas y 2 filas */
+.default-dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ✅ Dos columnas */
+    gap: 20px; /* 🔹 Espaciado ligeramente reducido */
+    width: 80vw; /* ✅ Ocupar gran parte del ancho */
+    max-width: 900px; /* 🔹 Limitado para que no se extienda demasiado */
+    margin: 40px auto 0 auto; /* ✅ Centrado horizontalmente y separación del header */
+    justify-content: center;
+    align-items: start; /* ✅ Evita espacio innecesario debajo */
+    padding: 15px; /* 🔹 Menos padding para compactarlo */
+  }
+  
+  /* 📌 Tarjetas de contenido */
+  .default-card, .default-card2 {
+    background: white;
+    padding: 18px; /* 🔹 Ligeramente reducido */
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    width: 100%;
+    min-height: 180px; /* 🔹 Reducido para ocupar menos espacio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 📌 Tarjetas con fondo de alerta */
+  .default-card3 {
+    background: #e3f2fd; /* 🔹 Azul claro */
+    padding: 18px; 
+    border-radius: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    text-align: center;
+    width: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* 📌 Efecto hover */
+  .default-card:hover, .default-card2:hover {
+    transform: scale(1.02);
+  }
+  
+  /* 📌 Títulos dentro de las tarjetas */
+  .default-card h2, 
+  .default-card2 h2, 
+  .default-card3 h2 {
+    font-size: 1.3rem; /* 🔹 Un poco más pequeño */
+    margin-bottom: 8px;
+    color: #005f99;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* 📌 Botones de servicios */
+  .default-users-active {
+    background: linear-gradient(to right, #005f99, #0099cc) !important;
+    color: white !important;
+    padding: 12px; 
+    margin: 6px 0;
+    border-radius: 8px; 
+    font-size: 1rem; 
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%; 
+    max-width: 250px; 
+    transition: background 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  /* 📌 Hover uniforme para todos los botones */
+  .default-users-active:hover {
+    background: linear-gradient(to right, #004477, #0077aa) !important;
+    cursor: pointer;
+  }
+  
+  /* 📌 Responsividad - 1 columna en móviles */
+  @media (max-width: 768px) {
+    .default-dashboard {
+      grid-template-columns: 1fr; /* 🔹 Pasa a una sola columna */
+    }
+  }
+  

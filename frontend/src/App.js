@@ -6,6 +6,9 @@ import Users from "./pages/Users";
 import Groups from "./pages/Groups";
 import User from "./pages/User";
 import Databases from "./pages/Databases";
+import DefaultHome from "./pages/DefaultHome";
+import Roles from "./pages/Roles";
+import VpnRequest from "./pages/VpnRequest";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./styles/Global.css";
@@ -69,12 +72,14 @@ const App = () => {
 
       <main className="main-content">
         <Routes>
-          <Route path="/" element={<Home user={user} />} />
+        <Route path="/" element={user?.preferred_username === "pruth" ? <Home user={user} /> : <DefaultHome user={user} />} />
           <Route path="/databases" element={<Databases />}/>
           <Route path="/freeipa/allusers" element={<Users />} />
           <Route path="/freeipa/groups" element={<Groups />} />
           <Route path="/freeipa/user/:username" element={<User />} />
           <Route path="/freeipa/group/:groupName" element={<GroupDetails />} />
+          <Route path="/roles" element={<Roles />} />
+          <Route path="/vpn-request" element={<VpnRequest />} />
         </Routes>
       </main>
       <Footer />

@@ -81,26 +81,8 @@ const MiniDashboard = () => {
   return (
     <div className="mini-dashboard">
       {/* Fila 1 */}
-      <div className="card" onClick={() => navigate("/freeipa/allusers")} style={{ cursor: "pointer" }}>
-        <h2>Active Users</h2>
-        <ul>
-          {users.map(user => (
-            <li key={user.id}>{user.name}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="card">
-        <h2>Last Failed Login Attempts</h2>
-        <ul>
-          {failedLogins.slice(0, 5).map(user => (
-            <li key={user.id}>{user.name} : {user.failedLogin}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="card">
-        <h2>Users With Expired Password</h2>
+      <div className="card3">
+        <h2>Expired Password</h2>
         <ul>
           {expiredPasswords.length > 0 ? (
             expiredPasswords.slice(0, 5).map(user => (
@@ -112,24 +94,7 @@ const MiniDashboard = () => {
         </ul>
       </div>
 
-      {/* Fila 2 */}
-      <div className="card" onClick={() => navigate("/freeipa/groups")} style={{ cursor: "pointer" }}>
-        <h2>Groups</h2>
-        <ul>
-          {groups.map(group => (
-            <li key={group.cn?.[0]}>{group.cn?.[0]}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="card">
-        <h2>Services</h2>
-        <div className="users-active" onClick={() => navigate("/databases")}>Databases</div>
-        <div className="users-active" onClick={() => navigate("/minio")}>MinIO</div>
-      </div>
-
-      {/* Lista de Roles en lugar del gráfico */}
-      <div className="card">
+      <div className="card" onClick={() => navigate("/roles")} style={{ cursor: "pointer" }}>
         <h2>Roles Distribution</h2>
         <ul>
           {rolesData.length > 0 ? (
@@ -141,6 +106,42 @@ const MiniDashboard = () => {
           ) : (
             <li>No role data available</li>
           )}
+        </ul>
+      </div>
+
+      <div className="card" onClick={() => navigate("/freeipa/allusers")} style={{ cursor: "pointer" }}>
+        <h2>Active Users</h2>
+        <ul>
+          {users.map(user => (
+            <li key={user.id}>{user.name}</li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Fila 2 */}
+      <div className="card3">
+        <h2>Failed Login Attempts</h2>
+        <ul>
+          {failedLogins.slice(0, 5).map(user => (
+            <li key={user.id}>{user.name} : {user.failedLogin}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="card4">
+        <h2>Services</h2>
+        <div className="users-active" onClick={() => navigate("/databases")}>Databases</div>
+        <div className="users-active" onClick={() => window.location.href = "https://minio-console.andion.eu"}>MinIO</div>
+        <div className="users-active" onClick={() => navigate("/vpn-request")}>Request VPN</div> {/* 🔹 Nuevo botón */}
+      </div>
+
+      {/* Lista de Roles en lugar del gráfico */}
+      <div className="card" onClick={() => navigate("/freeipa/groups")} style={{ cursor: "pointer" }}>
+        <h2>Groups</h2>
+        <ul>
+          {groups.map(group => (
+            <li key={group.cn?.[0]}>{group.cn?.[0]}</li>
+          ))}
         </ul>
       </div>
     </div>
