@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Roles.css"; // Asegúrate de crear este archivo CSS
+import "./Roles.css";
 
 const Roles = () => {
   const [rolesData, setRolesData] = useState({});
@@ -9,10 +9,14 @@ const Roles = () => {
     fetch("http://138.4.11.249:9000/freeipa/allusers")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Usuarios recibidos:", data); // 🟢 Muestra todos los usuarios
+
         const roleMap = {};
 
         data.forEach((user) => {
           const roles = user.memberof_role || [];
+          console.log(`Usuario: ${user.cn?.[0]} - Roles:`, roles); // 🟢 Depura roles
+
           roles.forEach((role) => {
             if (!roleMap[role]) {
               roleMap[role] = [];
@@ -21,6 +25,7 @@ const Roles = () => {
           });
         });
 
+        console.log("Mapa de roles:", roleMap); // 🟢 Muestra la estructura final
         setRolesData(roleMap);
       })
       .catch((err) => console.error("Error fetching users:", err));
@@ -38,7 +43,7 @@ const Roles = () => {
           Object.entries(rolesData).map(([role, users]) => (
             <li key={role} className="role-item">
               <button className="role-button" onClick={() => toggleRole(role)}>
-                {role}
+                {role} ({users.length}) {/* 📌 Muestra el número de usuarios */}
               </button>
               {expandedRole === role && (
                 <ul className="users-list">

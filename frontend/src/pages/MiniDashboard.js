@@ -98,7 +98,7 @@ const MiniDashboard = () => {
         <h2>Roles Distribution</h2>
         <ul>
           {rolesData.length > 0 ? (
-            rolesData.map((role, index) => (
+            rolesData.slice(0, 4).map((role, index) => (
               <li key={index}>
                 {role.name}
               </li>
@@ -108,6 +108,7 @@ const MiniDashboard = () => {
           )}
         </ul>
       </div>
+
 
       <div className="card" onClick={() => navigate("/freeipa/allusers")} style={{ cursor: "pointer" }}>
         <h2>Active Users</h2>
@@ -128,11 +129,13 @@ const MiniDashboard = () => {
         </ul>
       </div>
 
-      <div className="card4">
+      <div className="card" onClick={() => navigate("/services")} style={{ cursor: "pointer" }}>
         <h2>Services</h2>
-        <div className="users-active" onClick={() => navigate("/databases")}>Databases</div>
-        <div className="users-active" onClick={() => window.location.href = "https://minio-console.andion.eu"}>MinIO</div>
-        <div className="users-active" onClick={() => navigate("/vpn-request")}>Request VPN</div> {/* 🔹 Nuevo botón */}
+        <ul>
+        <li>Databases</li>
+        <li>MinIO</li>
+        <li>Request VPN</li>
+        </ul>
       </div>
 
       {/* Lista de Roles en lugar del gráfico */}

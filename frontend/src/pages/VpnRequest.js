@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { jsPDF } from "jspdf";
+import { PDFDocument } from "pdf-lib";
+import { saveAs } from "file-saver";
+import pdfTemplate from "./RequestVPN.pdf"; // Asegúrate de que el archivo está en "public"
 import "./VpnRequest.css";
 
-const VpnRequest = () => {
+const VpnRequest = ({ user }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    fullName: "",
+    fullName: user?.name || "", // ✅ Autorrellena con el nombre del usuario autenticado
     dni: "",
     phone: "",
-    email: "",
+    email: user?.email || "", // ✅ Autorrellena con el email del usuario autenticado
     duration: "Permanent",
     expirationDate: "",
     mainGroup: "",
@@ -17,11 +19,27 @@ const VpnRequest = () => {
     otherGroups: "",
     wifiDevice: "",
     requestVPN: false,
-    requestFor: "Self",
+    requestFor: "",
     observations: "",
   });
 
-  // Actualizar valores del formulario
+  // ✅ Rellenar automáticamente los campos con la información del usuario autenticado
+  useEffect(() => {
+    if (user) {
+      setFormData((prevData) => ({
+        ...prevData,
+        fullName: user.name || "",
+        email: user.email || "",
+      }));
+    }
+  }, [user]);
+
+  // Obtener fecha actual en formato "DD/MM/YYYY"
+  const getCurrentDate = () => {
+    const date = new Date();
+    return date.toLocaleDateString("es-ES");
+  };
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -30,38 +48,57 @@ const VpnRequest = () => {
     });
   };
 
-  // Función para generar el PDF
-  const generatePDF = () => {
-    const doc = new jsPDF();
-    doc.setFont("helvetica", "bold");
-    doc.text("VPN Access Request Form", 20, 20);
+  // 📌 Función para generar el PDF con los campos correctos
+  const fillPDF = async () => {
+    try {
+      const existingPdfBytes = await fetch(pdfTemplate).then((res) =>
+        res.arrayBuffer()
+      );
+      const pdfDoc = await PDFDocument.load(existingPdfBytes);
+      const form = pdfDoc.getForm();
 
-    doc.setFont("helvetica", "normal");
-    doc.text(`Full Name: ${formData.fullName}`, 20, 40);
-    doc.text(`DNI/Passport: ${formData.dni}`, 20, 50);
-    doc.text(`Phone: ${formData.phone}`, 20, 60);
-    doc.text(`Email: ${formData.email}`, 20, 70);
-    doc.text(`Duration: ${formData.duration}`, 20, 80);
-    if (formData.duration === "Temporary") {
-      doc.text(`Expiration Date: ${formData.expirationDate}`, 20, 90);
+      // 📌 Rellenar los campos de texto en el PDF
+      form.getTextField("Text1")?.setText(formData.fullName);
+      form.getTextField("Text9")?.setText(formData.dni);
+      form.getTextField("Text10")?.setText(formData.phone);
+      form.getTextField("Text11")?.setText(formData.email);
+      form.getTextField("Text12")?.setText(
+        formData.duration === "Permanent" ? "Ilimitada" : `Hasta: ${formData.expirationDate}`
+      );
+      form.getTextField("Text13")?.setText(formData.mainGroup);
+      form.getTextField("Text14")?.setText(formData.researchGroup);
+      form.getTextField("Text15")?.setText(formData.otherGroups);
+      form.getTextField("Text16")?.setText(formData.wifiDevice);
+      form.getTextField("Text19")?.setText(formData.observations);
+
+      // ✅ Nuevo: Fecha de solicitud (Text17)
+      form.getTextField("Text17")?.setText(getCurrentDate());
+
+      // ✅ Nuevo: Solicitud en nombre de (Text18)
+      form.getTextField("Text18")?.setText(formData.requestFor);
+
+      // 📌 Manejo del checkbox para VPN
+      const vpnCheckbox = form.getCheckBox("Button1");
+      if (vpnCheckbox) {
+        formData.requestVPN ? vpnCheckbox.check() : vpnCheckbox.uncheck();
+      } else {
+        console.error("No se encontró el campo Button1 en el PDF");
+      }
+
+      // 📌 Guardar y descargar el PDF modificado
+      const pdfBytes = await pdfDoc.save();
+      const blob = new Blob([pdfBytes], { type: "application/pdf" });
+      saveAs(blob, "Solicitud_VPN.pdf");
+    } catch (error) {
+      console.error("Error al generar el PDF:", error);
+      alert("Error al generar el PDF.");
     }
-    doc.text(`Main Group: ${formData.mainGroup}`, 20, 100);
-    doc.text(`Research Group: ${formData.researchGroup}`, 20, 110);
-    doc.text(`Other Groups: ${formData.otherGroups}`, 20, 120);
-    doc.text(`WiFi Device: ${formData.wifiDevice}`, 20, 130);
-    doc.text(`VPN Requested: ${formData.requestVPN ? "Yes" : "No"}`, 20, 140);
-    doc.text(`Request For: ${formData.requestFor}`, 20, 150);
-    doc.text("Observations:", 20, 160);
-    doc.text(formData.observations || "None", 20, 170);
-
-    doc.save("VPN_Request.pdf");
   };
 
-  // Manejar el envío del formulario
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    generatePDF();
-    alert("VPN request form submitted and PDF generated!");
+    await fillPDF();
+    alert("Formulario enviado y PDF generado.");
     navigate("/");
   };
 
@@ -124,30 +161,29 @@ const VpnRequest = () => {
             <input type="text" name="otherGroups" value={formData.otherGroups} onChange={handleChange} />
           </label>
           <label>
-            WiFi Device (Yes/No):
+            WiFi Device:
             <input type="text" name="wifiDevice" value={formData.wifiDevice} onChange={handleChange} />
           </label>
         </div>
 
         <div className="form-row">
           <label>
-            Request VPN:
-            <input type="checkbox" name="requestVPN" checked={formData.requestVPN} onChange={handleChange} />
-          </label>
-          <label>
-            Request For:
-            <select name="requestFor" value={formData.requestFor} onChange={handleChange}>
-              <option value="Self">Self</option>
-              <option value="Research">Research Group</option>
-              <option value="Other">Other</option>
-            </select>
+            Requesting On Behalf Of (if applicable):
+            <input type="text" name="requestFor" value={formData.requestFor} onChange={handleChange} />
           </label>
         </div>
 
-        <label className="textarea-label">
-          Observations:
-          <textarea name="observations" value={formData.observations} onChange={handleChange} />
+        <label className="checkbox-label">
+          Request VPN:
+          <input type="checkbox" name="requestVPN" checked={formData.requestVPN} onChange={handleChange} />
         </label>
+
+        <div className="form-row">
+          <label>
+            Observations:
+            <textarea name="observations" value={formData.observations} onChange={handleChange} />
+          </label>
+        </div>
 
         <button type="submit">Submit Request</button>
       </form>

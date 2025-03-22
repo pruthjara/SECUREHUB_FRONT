@@ -1,68 +1,85 @@
-/* 📌 Contenedor principal más compacto */
+/* 📌 Contenedor principal */
 .group-details {
-  max-width: 650px; /* 🔹 Un poco más pequeño */
-  margin: 40px auto; /* 🔹 Menos separación */
-  padding: 20px; /* 🔹 Menos espacio interno */
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 20px;
   background: white;
-  border-radius: 10px; /* 🔹 Bordes más suaves */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 🔹 Sombra más ligera */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* 📌 Efecto hover menos pronunciado */
+/* 📌 Efecto hover */
 .group-details:hover {
-  transform: scale(1.02); /* 🔹 Menos agrandamiento */
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* 🔹 Sombra más sutil */
+  transform: scale(1.02);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
 /* 📌 Título */
-h2 {
+.group-details h2 {
   color: #005f99;
   text-align: center;
-  margin-bottom: 20px; /* 🔹 Menos separación */
-  font-size: 1.8rem; /* 🔹 Un poco más pequeño */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
 }
 
-/* 📌 Información del grupo más compacta */
-p {
-  font-size: 1rem; /* 🔹 Un poco más pequeño */
+/* 📌 Información del grupo */
+.group-details p {
+  font-size: 1rem;
   color: #333;
   background: linear-gradient(to right, #e3f2fd, #bbdefb);
-  padding: 10px; /* 🔹 Menos espacio interno */
-  border-radius: 8px; /* 🔹 Bordes más suaves */
-  margin: 6px 0; /* 🔹 Menos espacio entre párrafos */
+  padding: 10px;
+  border-radius: 8px;
+  margin: 6px 0;
   font-weight: bold;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08); /* 🔹 Sombra más ligera */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
 }
 
 /* 📌 Etiquetas en negrita */
-strong {
+.group-details strong {
   color: #005f99;
 }
 
 /* 📌 Animación de carga */
 .loading {
   text-align: center;
-  font-size: 1.2rem; /* 🔹 Un poco más pequeño */
+  font-size: 1.2rem;
   font-weight: bold;
   color: #005f99;
-  padding: 10px; /* 🔹 Menos espacio */
+  padding: 10px;
+}
+
+/* 📌 Enlace para volver al listado */
+.back-button {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #005f99;
+  background-color: #e3f2fd;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #bbdefb;
 }
 
 /* 📌 Adaptabilidad para móviles */
 @media (max-width: 768px) {
   .group-details {
     max-width: 90%;
-    padding: 15px; /* 🔹 Un poco más compacto */
+    padding: 15px;
   }
 
-  h2 {
-    font-size: 1.6rem; /* 🔹 Un poco más pequeño en móviles */
+  .group-details h2 {
+    font-size: 1.6rem;
   }
 
-  p {
-    font-size: 0.95rem; /* 🔹 Ajustado */
+  .group-details p {
+    font-size: 0.95rem;
     padding: 9px;
   }
 }

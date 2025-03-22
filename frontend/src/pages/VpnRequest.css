@@ -1,14 +1,20 @@
 .vpn-request-container {
     max-width: 550px;
-    margin: 20px auto;
-    padding: 20px;
+    margin: 50px auto;
+    padding: 25px;
     background: white;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
   
-  /* 📌 Agrupar inputs de dos en dos */
+  .vpn-request-container h2 {
+    font-size: 1.8rem;
+    color: #005f99;
+    margin-bottom: 25px;
+  }
+  
+  /* Agrupar campos de dos en dos */
   .form-row {
     display: flex;
     justify-content: space-between;
@@ -16,46 +22,59 @@
     margin-bottom: 15px;
   }
   
-  /* 📌 Ajustar tamaño de los inputs */
+  /* Estilo para etiquetas y campos */
   .form-row label {
     flex: 1;
     display: flex;
     flex-direction: column;
     text-align: left;
     font-weight: bold;
+    font-size: 0.95rem;
   }
   
-  /* 📌 Mejorar la apariencia de los inputs */
+  /* Inputs, selects y textarea uniformes */
   input, select, textarea {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 0.95rem;
   }
   
-  /* 📌 Ajustar tamaño del textarea */
-  .textarea-label textarea {
+  /* Textarea más alto */
+  textarea {
+    resize: vertical;
     min-height: 80px;
   }
   
-  /* 📌 Estilizar el botón */
+  /* Checkbox alineado */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  /* Botón de submit */
   button {
     background: linear-gradient(to right, #005f99, #0099cc);
     color: white;
     font-size: 1rem;
-    padding: 12px;
+    padding: 12px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    margin-top: 20px;
   }
   
   button:hover {
     background: linear-gradient(to right, #004477, #0077aa);
   }
   
-  /* 📌 Responsividad */
+  /* Responsive para móviles */
   @media (max-width: 600px) {
     .form-row {
       flex-direction: column;
