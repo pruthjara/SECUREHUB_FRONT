@@ -1,41 +1,41 @@
 /* Footer con degradado azul */
 .site-footer {
-    background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Alinea el texto a la izquierda */
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    font-size: 0.9rem;
-  }
-  
-  /* Estilos del texto del contacto */
-  .footer-text {
-    font-weight: bold;
-    color: white;
-    margin-left: 20px;
-    background: none !important; /* Asegura que no tenga fondo */
-    padding: 0; /* Evita el fondo azul claro */
-  }
-  
-  /* Enlace del correo */
-  .footer-text a {
-    color: #ffdd57; /* Amarillo */
-    text-decoration: none;
-    background: none !important; /* Elimina cualquier fondo */
-    padding: 0;
-    display: inline-block; /* Para evitar espacios raros */
-  }
-  
-  /* Cambio de color al pasar el cursor */
-  .footer-text a:hover {
-    color: #fff;
-    text-decoration: underline;
-  }
-  
-  
+  background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinea el texto a la izquierda */
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  font-size: 0.75rem; /* Reducido de 0.9rem a 0.75rem */
+}
+
+/* Estilos del texto del contacto */
+.footer-text {
+  font-weight: normal; /* Opcional: reducir grosor */
+  font-size: 0.7rem; /* Reducir aún más el tamaño del texto */
+  color: white;
+  margin-left: 15px; /* Reducir margen */
+  background: none !important; /* Asegura que no tenga fondo */
+  padding: 0; /* Evita el fondo azul claro */
+}
+
+/* Enlace del correo */
+.footer-text a {
+  font-size: 0.7rem; /* Asegurar que los enlaces también sean pequeños */
+  color: #ffdd57; /* Amarillo */
+  text-decoration: none;
+  background: none !important; /* Elimina cualquier fondo */
+  padding: 0;
+  display: inline-block; /* Para evitar espacios raros */
+}
+
+/* Cambio de color al pasar el cursor */
+.footer-text a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
