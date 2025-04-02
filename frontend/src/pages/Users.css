@@ -28,9 +28,10 @@ main:hover {
 /* Título */
 h2 {
   color: #005f99;
-  font-size: 2rem;
+  font-size: 1.5rem; /* Reducido en un 25% (de 2rem a 1.5rem) */
   margin-bottom: 25px;
 }
+
 
 /* Lista de usuarios */
 .user-list {
