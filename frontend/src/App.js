@@ -23,7 +23,7 @@ if (!window.crypto?.randomUUID) {
 
 // Configuración de Keycloak
 const keycloakConfig = {
-  url: "http://138.4.11.249:8080",
+  url: "https://keycloak.andion.eu",
   realm: "securehub",
   clientId: "securehub-frontend",
 };
