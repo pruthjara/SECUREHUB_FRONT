@@ -61,7 +61,7 @@ const App = () => {
 
   const handleLogout = () => {
     if (keycloak) {
-      keycloak.logout({ redirectUri: "http://138.4.11.249:3030" })
+      keycloak.logout({ redirectUri: "https://securehub.andion.eu" })
     }
   };
 

@@ -6,7 +6,7 @@ const Groups = () => {
   const [groups, setGroups] = useState([]);
 
   useEffect(() => {
-    fetch("http://138.4.11.249:9000/freeipa/groups")
+    fetch("https://api.securehub.andion.eu/freeipa/groups")
       .then((res) => res.json())
       .then((data) => setGroups(data))
       .catch((err) => console.error(err));

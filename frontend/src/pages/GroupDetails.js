@@ -8,7 +8,7 @@ const GroupDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://138.4.11.249:9000/freeipa/groups/${groupname}`)
+    fetch(`https://api.securehub.andion.eu/freeipa/groups/${groupname}`)
       .then((res) => {
         if (!res.ok) throw new Error("Error en la respuesta del servidor");
         return res.json();

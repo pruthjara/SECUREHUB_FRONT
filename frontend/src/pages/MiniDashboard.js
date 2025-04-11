@@ -10,7 +10,7 @@ const MiniDashboard = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://138.4.11.249:9000/freeipa/allusers")
+    fetch("https://api.securehub.andion.eu/freeipa/allusers")
       .then(response => response.json())
       .then(data => {
         console.log("Usuarios recibidos:", data);
@@ -47,7 +47,7 @@ const MiniDashboard = () => {
       })
       .catch(error => console.error("Error fetching users:", error));
 
-    fetch("http://138.4.11.249:9000/freeipa/groups")
+    fetch("https://api.securehub.andion.eu/freeipa/groups")
       .then(response => response.json())
       .then(data => setGroups(data.slice(0, 4)))
       .catch(error => console.error("Error fetching groups:", error));

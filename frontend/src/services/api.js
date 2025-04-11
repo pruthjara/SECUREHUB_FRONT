@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 // Base URL del backend
-const API_BASE_URL = 'http://138.4.11.249:9000/freeipa';
+const API_BASE_URL = 'https://api.securehub.andion.eu/freeipa';
 
-const BASE_URL = 'http://138.4.11.249:9000';
+const BASE_URL = 'https://api.securehub.andion.eu';
 
 export const fetchUserDetails = (username) => {
   return axios.get(`${API_BASE_URL}/user/${username}`);

@@ -12,7 +12,7 @@ const DefaultHome = ({ user }) => {
     if (!user || !user.preferred_username) return;
 
     // Obtener información del usuario autenticado
-    fetch(`http://138.4.11.249:9000/freeipa/user/${user.preferred_username}`)
+    fetch(`https://api.securehub.andion.eu/freeipa/user/${user.preferred_username}`)
       .then(response => response.json())
       .then(data => {
         console.log("User data:", data);

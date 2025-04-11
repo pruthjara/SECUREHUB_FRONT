@@ -6,7 +6,7 @@ const Roles = () => {
   const [expandedRole, setExpandedRole] = useState(null);
 
   useEffect(() => {
-    fetch("http://138.4.11.249:9000/freeipa/allusers")
+    fetch("https://api.securehub.andion.eu/freeipa/allusers")
       .then((res) => res.json())
       .then((data) => {
         console.log("Usuarios recibidos:", data); // 🟢 Muestra todos los usuarios
