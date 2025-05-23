@@ -17,12 +17,12 @@ const Services = () => {
     <main className="services-container">
       <h2>Available Services</h2>
 
-      {/* 📌 Botón para mostrar las bases de datos */}
+   
       <button className="service-button" onClick={() => setShowDatabases(!showDatabases)}>
         {showDatabases ? "Hide Databases" : "Show Databases"}
       </button>
 
-      {/* 📌 Lista de bases de datos (solo si está activado) */}
+
       {showDatabases && (
         <div className="database-list">
           {databases.map((db, index) => (
@@ -33,7 +33,6 @@ const Services = () => {
         </div>
       )}
 
-      {/* 📌 Otros servicios */}
       <div className="services-options">
         <button className="service-button" onClick={() => window.location.href = "https://minio-console.andion.eu"}>
           MinIO
