@@ -1,6 +1,6 @@
-/* Asegurar fondo gris claro en la página */
+
 body {
-  background: #F5F5F5 !important; /* Gris claro en lugar de blanco puro */
+  background: #F5F5F5 !important; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@ body {
   margin: 0;
 }
 
-/* Contenedor principal */
+
 main {
   max-width: 900px;
   margin: 50px auto;
@@ -19,21 +19,21 @@ main {
   text-align: center;
 }
 
-/* Eliminado hover en `main` para evitar el efecto de elevación */
+
 main:hover {
   transform: none !important;
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Título */
+
 h2 {
   color: #005f99;
-  font-size: 1.5rem; /* Reducido en un 25% (de 2rem a 1.5rem) */
+  font-size: 1.5rem;
   margin-bottom: 25px;
 }
 
 
-/* Lista de usuarios */
+
 .user-list {
   list-style-type: none;
   padding: 0;
@@ -42,21 +42,21 @@ h2 {
   gap: 15px;
 }
 
-/* Fila de usuarios (dos por fila) */
+
 .user-row {
   display: flex;
   justify-content: center;
-  gap: 20px; /* Espacio entre los botones */
+  gap: 20px; 
   width: 100%;
 }
 
-/* Botón de usuario */
+
 .user-button {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 400px; /* Más compacto para que quepan dos */
+  max-width: 400px; 
   min-height: 60px;
   background: linear-gradient(to right, #005f99, #0099cc);
   color: white;
@@ -70,22 +70,22 @@ h2 {
   box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto hover solo en los botones */
+
 .user-button:hover {
   background: linear-gradient(to right, #004477, #0077aa);
   cursor: pointer;
   transform: scale(1.05);
 }
 
-/* Adaptabilidad para móviles: mostrar en una columna */
+
 @media (max-width: 768px) {
   .user-row {
-    flex-direction: column; /* Cambia a una sola columna */
+    flex-direction: column;
     align-items: center;
   }
 
   .user-button {
-    max-width: 100%; /* Ocupar todo el ancho disponible */
+    max-width: 100%;
     font-size: 1rem;
     padding: 14px;
     min-height: 55px;
