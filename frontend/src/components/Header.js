@@ -7,13 +7,11 @@ const Header = ({ handleLogout, user }) => {
 
   return (
     <header className="header">
-      {/* Contenedor izquierdo: Logo + Título (redirige a Home) */}
       <div className="logo-container" onClick={() => navigate("/")}>
         <img src="/dit-logo.png" alt="Logo" className="logo" />
         <h1 className="title">SecureHub</h1>
       </div>
 
-      {/* Contenedor derecho: Flechas de navegación + Botón de usuario + Logout */}
       <div className="logout-container">
         {/* Botones de navegación */}
         <button className="nav-button" onClick={() => window.history.back()}>
@@ -23,7 +21,6 @@ const Header = ({ handleLogout, user }) => {
           {">"}
         </button>
 
-        {/* Botón de información de usuario con redirección a su página */}
         {user && (
           <button
             className="user-button2"
@@ -33,7 +30,6 @@ const Header = ({ handleLogout, user }) => {
           </button>
         )}
 
-        {/* Botón de Cerrar sesión */}
         <button className="logout-button" onClick={handleLogout}>
           Cerrar sesión
         </button>
