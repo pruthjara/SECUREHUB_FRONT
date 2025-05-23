@@ -1,26 +1,26 @@
-/* 📌 MiniDashboard con 3 columnas y 2 filas */
+
 .mini-dashboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px; /* 🔹 Espaciado más compacto */
+  gap: 15px; 
   width: 95vw;
-  max-width: 1100px; /* 🔹 Reducido un poco */
-  margin: 30px auto 0 auto; /* 🔹 Menos margen arriba */
+  max-width: 1100px; 
+  margin: 30px auto 0 auto; 
   justify-content: center;
   align-items: start;
-  padding: 10px; /* 🔹 Menos padding general */
+  padding: 10px; 
 }
 
-/* 📌 Tarjetas más pequeñas */
+
 .card, .card2, .card3, .card4 {
   background: white;
-  padding: 15px; /* 🔹 Reducido */
+  padding: 15px; 
   border-radius: 10px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
   text-align: center;
   width: 100%;
-  min-height: 200px; /* 🔹 Menos altura */
+  min-height: 200px; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,7 +28,7 @@
 }
 
 .card3 {
-  background: #e3f2fd; /* Azul clarito */
+  background: #e3f2fd;
 }
 
 /* 📌 Efecto hover */
@@ -36,16 +36,16 @@
   transform: scale(1.02);
 }
 
-/* 📌 Títulos dentro de las tarjetas */
+
 .card h2, .card2 h2, .card3 h2, .card4 h2{
-  font-size: 1.3rem; /* 🔹 Un poco más pequeño */
-  margin-bottom: 8px; /* 🔹 Menos separación */
+  font-size: 1.3rem; 
+  margin-bottom: 8px; 
   color: #005f99;
   text-align: center;
   width: 100%;
 }
 
-/* 📌 Listas dentro de las tarjetas */
+
 .card ul, .card2 ul, .card3 ul, .card4 ul {
   list-style: none;
   padding: 0;
@@ -55,7 +55,7 @@
   align-items: center;
 }
 
-/* 📌 Botones más compactos */
+
 .card ul li, 
 .card2 ul li, 
 .card3 ul li,
@@ -64,8 +64,8 @@
 .card.roles-distribution ul li {
   background: linear-gradient(to right, #005f99, #0099cc) !important; 
   color: white !important;
-  padding: 10px; /* 🔹 Menos espacio interno */
-  margin: 5px 0; /* 🔹 Más compacto */
+  padding: 10px; 
+  margin: 5px 0; 
   border-radius: 8px;
   font-size: 1rem;
   font-weight: bold;
@@ -74,24 +74,24 @@
   justify-content: center;
   align-items: center;
   width: 90%;
-  max-width: 280px; /* 🔹 Reducido un poco */
+  max-width: 280px; 
   transition: background 0.3s ease-in-out;
 }
 
-/* 📌 Hover uniforme */ 
+
 .users-active:hover {
   background: linear-gradient(to right, #004477, #0077aa) !important;
   cursor: pointer;
 }
 
-/* 📌 Responsividad - 2 columnas en pantallas medianas */
+
 @media (max-width: 1024px) {
   .mini-dashboard {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 📌 Responsividad - 1 columna en móviles */
+
 @media (max-width: 768px) {
   .mini-dashboard {
     grid-template-columns: 1fr;
