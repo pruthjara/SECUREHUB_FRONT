@@ -13,7 +13,6 @@ const Header = ({ handleLogout, user }) => {
       </div>
 
       <div className="logout-container">
-        {/* Botones de navegación */}
         <button className="nav-button" onClick={() => window.history.back()}>
           {"<"}
         </button>
