@@ -31,7 +31,7 @@
   background: #e3f2fd;
 }
 
-/* 📌 Efecto hover */
+
 .card:hover, .card2:hover {
   transform: scale(1.02);
 }
