@@ -1,4 +1,4 @@
-/* 📌 Contenedor principal */
+
 .group-details {
   max-width: 650px;
   margin: 40px auto;
@@ -10,13 +10,13 @@
   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* 📌 Efecto hover */
+
 .group-details:hover {
   transform: scale(1.02);
   box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* 📌 Título */
+
 .group-details h2 {
   color: #005f99;
   text-align: center;
@@ -24,7 +24,7 @@
   font-size: 1.8rem;
 }
 
-/* 📌 Información del grupo */
+
 .group-details p {
   font-size: 1rem;
   color: #333;
@@ -36,12 +36,12 @@
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08);
 }
 
-/* 📌 Etiquetas en negrita */
+
 .group-details strong {
   color: #005f99;
 }
 
-/* 📌 Animación de carga */
+
 .loading {
   text-align: center;
   font-size: 1.2rem;
@@ -50,7 +50,7 @@
   padding: 10px;
 }
 
-/* 📌 Enlace para volver al listado */
+
 .back-button {
   display: inline-block;
   margin-top: 20px;
@@ -67,7 +67,7 @@
   background-color: #bbdefb;
 }
 
-/* 📌 Adaptabilidad para móviles */
+
 @media (max-width: 768px) {
   .group-details {
     max-width: 90%;
