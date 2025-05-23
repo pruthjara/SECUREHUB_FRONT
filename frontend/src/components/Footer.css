@@ -1,10 +1,10 @@
-/* Footer con degradado azul */
+
 .site-footer {
-    background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
+    background: linear-gradient(to right, #005f99, #0099cc); 
     color: white;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alinea el texto a la izquierda */
+    justify-content: flex-start; 
     padding: 10px 20px;
     position: fixed;
     bottom: 0;
@@ -14,25 +14,25 @@
     font-size: 0.85rem;
   }
   
-  /* Estilos del texto del contacto */
+
   .footer-text {
     font-weight: bold;
     color: white;
     margin-left: 20px;
-    background: none !important; /* Asegura que no tenga fondo */
-    padding: 0; /* Evita el fondo azul claro */
+    background: none !important; 
+    padding: 0; 
   }
   
-  /* Enlace del correo */
+
   .footer-text a {
-    color: #ffdd57; /* Amarillo */
+    color: #ffdd57; 
     text-decoration: none;
-    background: none !important; /* Elimina cualquier fondo */
+    background: none !important; 
     padding: 0;
-    display: inline-block; /* Para evitar espacios raros */
+    display: inline-block; 
   }
   
-  /* Cambio de color al pasar el cursor */
+
   .footer-text a:hover {
     color: #fff;
     text-decoration: underline;
