@@ -1,6 +1,6 @@
-/* Header */
+
 .header {
-  background: linear-gradient(to right, #005f99, #0099cc); /* Azul degradado */
+  background: linear-gradient(to right, #005f99, #0099cc); 
   color: white;
   display: flex;
   align-items: center;
@@ -14,17 +14,17 @@
   z-index: 1000;
 }
 
-/* Contenedor del logo y título alineado a la izquierda */
+
 .logo-container {
   display: flex;
   align-items: center;
-  cursor: pointer; /* Hace que el logo y el título sean clickeables */
+  cursor: pointer; 
 }
 
 .logo {
   height: 50px;
   margin-right: 15px;
-  border-radius: 10px; /* Bordes suavemente redondeados */
+  border-radius: 10px; 
 }
 
 .title {
@@ -33,14 +33,14 @@
   text-transform: uppercase;
 }
 
-/* Contenedor de logout, usuario y navegación alineado a la derecha */
+
 .logout-container {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espacio entre los botones */
+  gap: 15px; 
 }
 
-/* Botón de logout */
+
 .logout-button {
   background: #ff4d4d;
   color: white;
@@ -56,36 +56,36 @@
   background: #cc0000;
 }
 
-/* Botón de usuario sin fondo */
+
 .user-button2 {
-  background: transparent; /* 🔹 Fondo transparente */
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0; /* 🔹 Elimina el relleno */
+  padding: 0; 
   display: flex;
   align-items: center;
   justify-content: center;
-  width: auto; /* 🔹 Se ajusta al tamaño de la imagen */
+  width: auto; 
   height: auto;
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .user-button2:hover {
-  transform: scale(1.1); /* 🔹 Efecto de zoom */
+  transform: scale(1.1); 
 }
 
-/* Icono dentro del botón de usuario */
+
 .user-icon {
-  width: 30px; /* 🔹 Tamaño más pequeño */
+  width: 30px; 
   height: 30px;
-  border-radius: 4px; /* 🔹 Mantiene bordes suaves */
-  object-fit: cover; /* 🔹 Ajusta la imagen sin deformarla */
+  border-radius: 4px;
+  object-fit: cover; 
 }
 
 
 
 
-/* 📌 Estilos para las flechas de navegación */
+
 .nav-button {
   background: transparent;
   border: none;
@@ -97,5 +97,5 @@
 }
 
 .nav-button:hover {
-  color: #ffdd57; /* Amarillo claro al pasar el mouse */
+  color: #ffdd57;
 }
