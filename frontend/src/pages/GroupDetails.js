@@ -14,12 +14,12 @@ const GroupDetails = () => {
         return res.json();
       })
       .then((data) => {
-        console.log("✅ Grupo recibido:", data);
+        console.log("Grupo recibido:", data);
         setGroup(data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error("❌ Error al cargar grupo:", err);
+        console.error("Error al cargar grupo:", err);
         setLoading(false);
       });
   }, [groupname]);
