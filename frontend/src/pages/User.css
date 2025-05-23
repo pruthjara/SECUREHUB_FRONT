@@ -1,88 +1,88 @@
-/* 📌 Contenedor principal más compacto */
+
 .user-details {
-  max-width: 650px; /* 🔹 Un poco más pequeño */
-  margin: 40px auto; /* 🔹 Menos separación */
-  padding: 20px; /* 🔹 Menos espacio interno */
+  max-width: 650px; 
+  margin: 40px auto; 
+  padding: 20px; 
   background: white;
-  border-radius: 10px; /* 🔹 Bordes más suaves */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* 🔹 Sombra más ligera */
+  border-radius: 10px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
   text-align: left;
   transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/* 📌 Efecto hover menos pronunciado */
+
 .user-details:hover {
-  transform: scale(1.02); /* 🔹 Menos agrandamiento */
-  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); /* 🔹 Sombra más sutil */
+  transform: scale(1.02);
+  box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.12); 
 }
 
-/* 📌 Título */
+
 h2 {
   color: #005f99;
   text-align: center;
-  margin-bottom: 20px; /* 🔹 Menos separación */
-  font-size: 1.5rem; /* 🔹 Un poco más pequeño */
+  margin-bottom: 20px; 
+  font-size: 1.5rem; 
 }
 
-/* 📌 Información del usuario más compacta */
+
 p {
-  font-size: 1rem; /* 🔹 Un poco más pequeño */
+  font-size: 1rem; 
   color: #333;
   background: linear-gradient(to right, #e3f2fd, #bbdefb);
-  padding: 10px; /* 🔹 Menos espacio interno */
-  border-radius: 8px; /* 🔹 Bordes más suaves */
-  margin: 6px 0; /* 🔹 Menos espacio entre párrafos */
+  padding: 10px; 
+  border-radius: 8px; 
+  margin: 6px 0; 
   font-weight: bold;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08); /* 🔹 Sombra más ligera */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.08); 
 }
 
-/* 📌 Etiquetas en negrita */
+
 strong {
   color: #005f99;
 }
 
-/* 📌 Animación de carga */
+
 .loading {
   text-align: center;
-  font-size: 1.2rem; /* 🔹 Un poco más pequeño */
+  font-size: 1.2rem; 
   font-weight: bold;
   color: #005f99;
-  padding: 10px; /* 🔹 Menos espacio */
+  padding: 10px; 
 }
 
-/* 📌 Resaltar si la cuenta está bloqueada */
+
 .account-status {
-  font-size: 1rem; /* 🔹 Un poco más pequeño */
+  font-size: 1rem; 
   font-weight: bold;
-  padding: 12px; /* 🔹 Menos espacio */
-  border-radius: 8px; /* 🔹 Bordes más suaves */
+  padding: 12px; 
+  border-radius: 8px; 
   text-align: center;
-  margin: 8px 0; /* 🔹 Menos espacio */
+  margin: 8px 0; 
 }
 
 .account-status.active {
-  background: linear-gradient(to right, #66bb6a, #43a047); /* Verde degradado */
+  background: linear-gradient(to right, #66bb6a, #43a047); 
   color: white;
 }
 
 .account-status.locked {
-  background: linear-gradient(to right, #ef5350, #d32f2f); /* Rojo degradado */
+  background: linear-gradient(to right, #ef5350, #d32f2f); 
   color: white;
 }
 
-/* 📌 Adaptabilidad para móviles */
+
 @media (max-width: 768px) {
   .user-details {
     max-width: 90%;
-    padding: 15px; /* 🔹 Un poco más compacto */
+    padding: 15px; 
   }
 
   h2 {
-    font-size: 1.6rem; /* 🔹 Un poco más pequeño en móviles */
+    font-size: 1.6rem; 
   }
 
   p {
-    font-size: 0.95rem; /* 🔹 Ajustado */
+    font-size: 0.95rem; 
     padding: 9px;
   }
 }
