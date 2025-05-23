@@ -1,4 +1,4 @@
-/* 📌 Contenedor principal */
+
 .roles-container {
     max-width: 800px;
     margin: 50px auto;
@@ -9,16 +9,16 @@
     text-align: center;
   }
   
-  /* 📌 Título */
+
   h2 {
     color: #005f99;
-    font-size: 1.5rem; /* 🔹 Más grande */
+    font-size: 1.5rem; 
     font-weight: bold;
     margin-bottom: 25px;
     text-transform: uppercase;
   }
   
-  /* 📌 Lista de roles */
+
   .roles-list {
     list-style: none;
     padding: 0;
@@ -27,22 +27,22 @@
     gap: 15px;
   }
   
-  /* 📌 Estilo de cada rol */
+
   .role-item {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
-  /* 📌 Botón de cada rol */
+
   .role-button {
     display: block;
     width: 100%;
     max-width: 500px;
     background: linear-gradient(to right, #005f99, #0099cc);
     color: white;
-    padding: 14px; /* 🔹 Un poco más grande */
-    font-size: 1.3rem; /* 🔹 Más grande */
+    padding: 14px; 
+    font-size: 1.3rem;
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
@@ -53,13 +53,13 @@
     border: none;
   }
   
-  /* 📌 Hover en los botones */
+
   .role-button:hover {
     background: linear-gradient(to right, #004477, #0077aa);
     transform: scale(1.05);
   }
   
-  /* 📌 Lista de usuarios dentro de un rol */
+
   .users-list {
     margin-top: 12px;
     list-style: none;
@@ -69,21 +69,21 @@
     align-items: center;
   }
   
-  /* 📌 Cada usuario dentro del rol */
+
   .user-item {
     background: #e3f2fd;
     color: #005f99;
     padding: 10px;
     border-radius: 8px;
     width: 90%;
-    max-width: 450px; /* 🔹 Un poco más ancho */
+    max-width: 450px; 
     margin: 6px 0;
-    font-size: 1.1rem; /* 🔹 Más grande */
+    font-size: 1.1rem; 
     font-weight: bold;
     text-align: center;
   }
   
-  /* 📌 Responsividad */
+
   @media (max-width: 768px) {
     .roles-container {
       max-width: 90%;
@@ -91,7 +91,7 @@
     }
   
     h2 {
-      font-size: 2rem; /* 🔹 Aumentado en móviles */
+      font-size: 2rem; 
     }
   
     .role-button {
