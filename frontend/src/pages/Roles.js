@@ -9,13 +9,13 @@ const Roles = () => {
     fetch("https://api.securehub.andion.eu/freeipa/allusers")
       .then((res) => res.json())
       .then((data) => {
-        console.log("Usuarios recibidos:", data); // 🟢 Muestra todos los usuarios
+        console.log("Usuarios recibidos:", data); 
 
         const roleMap = {};
 
         data.forEach((user) => {
           const roles = user.memberof_role || [];
-          console.log(`Usuario: ${user.cn?.[0]} - Roles:`, roles); // 🟢 Depura roles
+          console.log(`Usuario: ${user.cn?.[0]} - Roles:`, roles); 
 
           roles.forEach((role) => {
             if (!roleMap[role]) {
@@ -25,7 +25,7 @@ const Roles = () => {
           });
         });
 
-        console.log("Mapa de roles:", roleMap); // 🟢 Muestra la estructura final
+        console.log("Mapa de roles:", roleMap); 
         setRolesData(roleMap);
       })
       .catch((err) => console.error("Error fetching users:", err));
